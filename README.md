@@ -4,13 +4,13 @@ Fender QA Engineering Challenge
 ## Requirements for Project:
 
 ##### 1. Install Maven:
-```http://maven.apache.org/download.cgi```
+* http://maven.apache.org/download.cgi
  
 ##### 2. Install Java 1.8 JDK: 
-```http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html```
+* http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html```
 
 ##### 3. Update to the Latest Chrome Browser:
-```https://www.google.com/chrome/browser/desktop/index.html```
+* https://www.google.com/chrome/browser/desktop/index.html
 
 ##### 4. Clone This Repository and Import Into IDE
 
@@ -28,6 +28,10 @@ Fender QA Engineering Challenge
 * log4j
 * slf4j-api
 * slf4j-log4j12
+
+## Running Tests Locally:
+* In your IDE navigate to ShopFenderGuitarTest, right click in the class and select "Run 'ShopFenderGuitarTest'"
+* Chrome will open up and run the test
 
 ## Reference Documentation:
 * http://maven.apache.org/download.cgi
