@@ -5,17 +5,29 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Mouse;
+import org.openqa.selenium.interactions.MoveMouseAction;
+import org.openqa.selenium.interactions.internal.MouseAction;
+import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
 public class BasePageObject {
 
+    protected Logger log = LoggerFactory.getLogger(BasePageObject.class);
+
     protected WebDriver driver;
     protected Wait<WebDriver> wait;
+    protected Action actor;
+    protected MouseAction mouseAction;
 
     public BasePageObject(WebDriver driver){
         this.driver = driver;
@@ -32,6 +44,12 @@ public class BasePageObject {
         wait.until(ExpectedConditions.visibilityOf(element)).sendKeys();
         element.clear();
         element.sendKeys(keys);
+    }
+
+    public MouseAction moveToElement(WebElement toElement) {
+        moveToElement(toElement);
+        wait.until(ExpectedConditions.visibilityOf(toElement));
+        return mouseAction;
     }
 
 
