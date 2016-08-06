@@ -7,7 +7,7 @@ Fender QA Engineering Challenge
 * http://maven.apache.org/download.cgi
  
 ##### 2. Install Java 1.8 JDK: 
-* http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html```
+* http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 ##### 3. Update to the Latest Chrome Browser:
 * https://www.google.com/chrome/browser/desktop/index.html
@@ -43,5 +43,9 @@ Fender QA Engineering Challenge
 * https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12/1.7.10
 
 
-## Possible Enhancements:
+## Possible Enhancements: Make the Test More Robust
+* Click thumbnail from home page then click desired guitar instead of sending keys through search
+* Make verifyProduct method reusable for other tests
+
+
 
