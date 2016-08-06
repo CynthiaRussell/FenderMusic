@@ -1,5 +1,6 @@
 package com.awesome.fender.page;
 
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,12 @@ public class ShopPage extends BasePageObject {
 
     @FindBy(css = "#home-slot-2-container > article > div:nth-child(2) > div:nth-child(4) > a > div.thbcopy > p.subhead")
     private WebElement shopFenderPageUniqueElement;
+
+    @FindBy(css = "#search-value")
+    private WebElement searchBar;
+
+    @FindBy(css = "#navigation > nav.nav-content.site-search.visible-desktop > div > form > div > button")
+    private WebElement submitButton;
 
     @FindBy(css = ".add-to-cart.large.button.full.green-btn")
     private WebElement selectAddToCart;
@@ -47,20 +54,29 @@ public class ShopPage extends BasePageObject {
         clickElement(shopFenderPageUniqueElement);
     }
 
-    public void addItemToCard(){
-        clickElement(selectAddToCart);
+    public void setSearchInput(java.lang.String keys){
+        sendKeys(searchBar, keys);
     }
+
+    public void searchSubmitButton(){
+        clickElement(submitButton);
+    }
+
+//    public void addItemToCard(java.lang.String element){
+//        moveToElement(driver.findElement(By.cssSelector(".add-to-cart.large.button.full.green-btn")));
+//        clickElement(selectAddToCart);
+//    }
 
     public void selectViewCart(){
         clickElement(viewCart);
     }
 
     public void verifyProduct(String cartContainer){
-        String bodyText = driver.findElement(By.cssSelector(cartContainer)).getText();
+        java.lang.String bodyText = driver.findElement(By.cssSelector(java.lang.String.valueOf(cartContainer))).getText();
         Assert.assertTrue("Product text not found!", bodyText.contains("JIMI HENDRIX STRATOCASTER®"));
     }
 
-    public void verifyQuantity(String quanitityDropDownMenu) {
+    public void verifyQuantity(java.lang.String quanitityDropDownMenu) {
         List<WebElement> listOfQuantity = driver.findElements(By.cssSelector(quanitityDropDownMenu));
         log.info(listOfQuantity.get(0).getText());
         Assert.assertEquals("The quantity is not what we found!", true, quanitityDropDownMenu);
@@ -74,6 +90,9 @@ public class ShopPage extends BasePageObject {
         clickElement(guestCheckout);
     }
 
-    
+
+
+
+
 
 }
